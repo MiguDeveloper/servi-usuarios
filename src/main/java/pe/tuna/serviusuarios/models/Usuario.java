@@ -29,13 +29,13 @@ public class Usuario implements Serializable {
     // clase dueña en este caso 'Usuario'
     // inverseJoinColumns: indicamos el nombre de la llave foranes en contraparte
     // uniqueConstraints: indicamos la llave primaria ambos IDs
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"),
             uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "role_id"})})
     private List<Role> roles;
 
-    private static final long serialVersionUID = 1655248764511917787L;
+    private static final long serialVersionUID = -3755531061133780919L;
 
     public String getNombre() {
         return nombre;
