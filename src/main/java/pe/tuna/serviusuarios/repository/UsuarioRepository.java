@@ -17,7 +17,7 @@ import pe.tuna.commonsusuarios.models.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     // query methods ejemplo
     @RestResource(path = "buscar-username")
-    public Usuario findByUsername(@Param("nombre") String username);
+    public Usuario findByUsername(@Param("username") String username);
 
     // metodo personalizado mediante anotaciones: @Query
     @Query("select u from Usuario u where u.username = ?1")
